@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { ArrowRight, Play, User, Phone, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import DoctorModal from './DoctorModal'; // 1. Import the new component
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const Hero = ({ onBookClick }) => {
   const [quickName, setQuickName] = useState("");
   const [quickPhone, setQuickPhone] = useState("");
+  const { language } = useLanguage();
+  const t = translations[language].hero;
   
   // 2. Add State for Doctor Modal
   const [isDoctorOpen, setIsDoctorOpen] = useState(false);
@@ -32,13 +36,12 @@ const Hero = ({ onBookClick }) => {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="max-w-3xl space-y-6">
             <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-              Trustworthy <br />
-              <span className="text-cyan-400">Dental Services</span>
+              {t.title} <br />
+              <span className="text-cyan-400">{t.titleHighlight}</span>
             </h1>
 
             <p className="text-gray-200 text-lg md:text-xl max-w-xl leading-relaxed">
-              Modern and painless dental treatments powered by advanced technology
-              and a caring team. Get trusted oral care for you at Mantist.
+              {t.description}
             </p>
 
             {/* 3. ATTACH CLICK HANDLER HERE */}
@@ -46,7 +49,7 @@ const Hero = ({ onBookClick }) => {
               onClick={() => setIsDoctorOpen(true)}
               className="mt-4 px-8 py-3 bg-white/10 backdrop-blur-md border border-white/30 text-white rounded-full font-medium hover:bg-white hover:text-gray-900 transition-all flex items-center gap-2 group"
             >
-              See Our Doctor
+              {t.seeDoctor}
               <ArrowRight
                 size={18}
                 className="group-hover:translate-x-1 transition-transform"
@@ -66,10 +69,10 @@ const Hero = ({ onBookClick }) => {
             <div className="flex flex-col md:flex-row items-center gap-4">
                 <div className="w-full md:w-auto">
                 <h3 className="text-cyan-600 font-bold text-sm uppercase tracking-wider mb-1">
-                    Book Your Visit
+                    {t.bookVisit}
                 </h3>
                 <p className="text-xs text-gray-400">
-                    On your terms, complete the form
+                    {t.bookSubtitle}
                 </p>
                 </div>
 
@@ -85,7 +88,7 @@ const Hero = ({ onBookClick }) => {
                     </div>
                     <input
                     type="text"
-                    placeholder="Your Name"
+                    placeholder={t.yourName}
                     value={quickName}
                     onChange={(e) => setQuickName(e.target.value)}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white"
@@ -101,7 +104,7 @@ const Hero = ({ onBookClick }) => {
                     </div>
                     <input
                     type="tel"
-                    placeholder="Phone Number"
+                    placeholder={t.phoneNumber}
                     value={quickPhone}
                     onChange={(e) => setQuickPhone(e.target.value)}
                     className="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all bg-gray-50 focus:bg-white"
@@ -113,7 +116,7 @@ const Hero = ({ onBookClick }) => {
                 onClick={() => onBookClick({ name: quickName, phone: quickPhone })}
                 className="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 transform hover:-translate-y-0.5 transition-all whitespace-nowrap"
                 >
-                Make Appointment →
+                {t.makeAppointment}
                 </button>
             </div>
             </div>

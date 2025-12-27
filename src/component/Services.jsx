@@ -1,24 +1,29 @@
 import React from "react";
 import { Sparkles, Anchor, Smile, Activity, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const Services = () => {
+  const { language } = useLanguage();
+  const t = translations[language].services;
+
   const serviceList = [
     {
       id: 1,
-      title: "Teeth Whitening",
-      description: "Cosmetic treatment to enhance the whiteness of teeth",
+      title: t.teethWhitening,
+      description: t.teethWhiteningDesc,
       icon: <Sparkles size={32} />,
-      theme: "blue", // Used for dynamic class selection
+      theme: "blue",
       bgClass: "hover: bg-blue-50",
       shadow : "hover: shadow-blue-50/10",
       iconClass: "text-blue-500",
     },
     {
       id: 2,
-      title: "Dental Implant",
-      description: "Surgical placement of artificial tooth roots",
-      icon: <Anchor size={32} />, // Using Anchor as a visual metaphor for a root/implant
+      title: t.dentalImplant,
+      description: t.dentalImplantDesc,
+      icon: <Anchor size={32} />,
       theme: "rose",
       bgClass: "hover: bg-rose-50",
       shadow : "hover: shadow-rose-50/10",
@@ -26,9 +31,8 @@ const Services = () => {
     },
     {
       id: 3,
-      title: "Teeth Whitening", // Kept title same as image, assume it means 'Restorative'
-      description:
-        "Restorative procedures to repair cavities and damaged teeth",
+      title: t.restorative,
+      description: t.restorativeDesc,
       icon: <Smile size={32} />,
       theme: "green",
       bgClass: "bg-green-50",
@@ -37,8 +41,8 @@ const Services = () => {
     },
     {
       id: 4,
-      title: "Oral Surgery",
-      description: "Restoration options for damaged or missing teeth",
+      title: t.oralSurgery,
+      description: t.oralSurgeryDesc,
       icon: <Activity size={32} />,
       theme: "fuchsia",
       bgClass: "bg-fuchsia-50",
@@ -58,9 +62,9 @@ const Services = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 space-y-2">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-            Trusted Dental Services for <br />
-            the Whole{" "}
-            <span className="font-serif italic font-medium">Family</span>
+            {t.title} <br />
+            {t.titleBreak}{" "}
+            <span className="font-serif italic font-medium">{t.titleHighlight}</span>
           </h2>
         </motion.div>
 

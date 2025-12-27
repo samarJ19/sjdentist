@@ -8,25 +8,30 @@ import BlogSection from './component/BlogSection';
 import Gallery from './component/Gallery';
 import Footer from './component/Footer';
 
+// Context
+import { LanguageProvider } from './context/LanguageContext';
+
 
 function App() {
   return (
-    <Router>
-      <div className="font-sans antialiased bg-white">
-        {/* Navbar stays outside Routes so it's visible on EVERY page */}
-        <Navbar />
-        
-        <Routes>
-          {/* The Main Landing Page */}
-          <Route path="/" element={<Home />} />
+    <LanguageProvider>
+      <Router>
+        <div className="font-sans antialiased bg-white">
+          {/* Navbar stays outside Routes so it's visible on EVERY page */}
+          <Navbar />
           
-          {/* The Separate Blog Page */}
-          <Route path="/blog" element={<BlogSection />} />
-          <Route path="/gallery" element={<Gallery />} />
-        </Routes>
-        <Footer/>
-      </div>
-    </Router>
+          <Routes>
+            {/* The Main Landing Page */}
+            <Route path="/" element={<Home />} />
+            
+            {/* The Separate Blog Page */}
+            <Route path="/blog" element={<BlogSection />} />
+            <Route path="/gallery" element={<Gallery />} />
+          </Routes>
+          <Footer/>
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

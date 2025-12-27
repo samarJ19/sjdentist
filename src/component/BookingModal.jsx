@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { X, Calendar, Clock, User, Phone } from 'lucide-react';
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const BookingModal = ({ isOpen, onClose, preFilledData }) => {
   // If not open, don't render
   if (!isOpen) return null;
+
+  const { language } = useLanguage();
+  const t = translations[language].booking;
 
   // Form State
   const [date, setDate] = useState('');
@@ -33,8 +38,8 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
       <div className="relative bg-white rounded-3xl w-full max-w-lg shadow-2xl overflow-hidden animate-scale-up">
         <div className="bg-cyan-500 p-6 text-white flex justify-between items-start">
           <div>
-            <h2 className="text-2xl font-bold">Book Appointment</h2>
-            <p className="text-cyan-100 text-sm mt-1">Schedule your visit in 30 seconds</p>
+            <h2 className="text-2xl font-bold">{t.title}</h2>
+            <p className="text-cyan-100 text-sm mt-1">{t.subtitle}</p>
           </div>
           <button onClick={onClose} className="p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors">
             <X size={20} />
@@ -45,7 +50,7 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
           {/* Date & Time Selection (Same as before) */}
           <div className="space-y-2">
             <label className="text-sm font-bold text-gray-700 flex items-center gap-2">
-              <Calendar size={16} className="text-cyan-500" /> Select Date
+              <Calendar size={16} className="text-cyan-500" /> {t.selectDate}
             </label>
             <input 
               required type="date" 
@@ -56,7 +61,7 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
 
           <div className="space-y-3">
              <label className="text-sm font-bold text-gray-700 flex items-center gap-2">
-              <Clock size={16} className="text-cyan-500" /> Available Slots
+              <Clock size={16} className="text-cyan-500" /> {t.availableSlots}
             </label>
             {/* ... Slots buttons (Same as before) ... */}
             <div className="flex flex-wrap gap-2 mt-2">
@@ -73,7 +78,7 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
                 <User size={18} className="absolute left-3 top-3.5 text-gray-400" />
                 <input 
                   type="text" 
-                  placeholder="Full Name" 
+                  placeholder={t.fullName}
                   required
                   value={name} // Connected to state
                   onChange={(e) => setName(e.target.value)}
@@ -87,7 +92,7 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
                 <Phone size={18} className="absolute left-3 top-3.5 text-gray-400" />
                 <input 
                   type="tel" 
-                  placeholder="Phone Number" 
+                  placeholder={t.phoneNumber}
                   required
                   value={phone} // Connected to state
                   onChange={(e) => setPhone(e.target.value)}
@@ -98,7 +103,7 @@ const BookingModal = ({ isOpen, onClose, preFilledData }) => {
           </div>
 
           <button type="submit" className="w-full py-4 bg-gray-900 text-white rounded-xl font-bold text-lg shadow-lg hover:bg-gray-800 transform transition-transform hover:-translate-y-0.5">
-            Confirm Booking
+            {t.confirmBooking}
           </button>
         </form>
       </div>

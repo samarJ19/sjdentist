@@ -2,10 +2,15 @@ import React, { useState } from "react"; // Import useState
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import ContactModal from "./ContactModal"; // Import the new component
+import LanguageToggle from "./LanguageToggle";
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const { language } = useLanguage();
+  const t = translations[language].nav;
 
   // State for Contact Modal
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -24,38 +29,38 @@ const Navbar = () => {
         {/* Navigation Links */}
         <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
           <li className="text-black font-semibold cursor-pointer">
-            <Link to="/">Home</Link>
+            <Link to="/">{t.home}</Link>
           </li>
 
           <li className="hover:text-cyan-500 cursor-pointer transition-colors">
             {isHomePage ? (
-              <a href="#services">Services</a>
+              <a href="#services">{t.services}</a>
             ) : (
-              <Link to="/">Services</Link>
+              <Link to="/">{t.services}</Link>
             )}
           </li>
 
           <li className="hover:text-cyan-500 cursor-pointer transition-colors">
             {isHomePage ? (
-              <a href="#technology">Technology</a>
+              <a href="#technology">{"Why Choose Us?"}</a>
             ) : (
-              <Link to="/">Technology</Link>
+              <Link to="/">{"Why Choose Us?"}</Link>
             )}
           </li>
 
           <li className="hover:text-cyan-500 cursor-pointer transition-colors">
             {isHomePage ? (
-              <a href="#testimonials">Testimonials</a>
+              <a href="#testimonials">{t.testimonials}</a>
             ) : (
-              <Link to="/">Technology</Link>
+              <Link to="/">{t.testimonials}</Link>
             )}
           </li>
 
           <li className="hover:text-cyan-500 cursor-pointer transition-colors">
-            <Link to="/gallery">Gallery</Link>
+            <Link to="/gallery">{t.gallery}</Link>
           </li>
           <li className="hover:text-cyan-500 cursor-pointer transition-colors">
-            <Link to="/blog">Blog</Link>
+            <Link to="/blog">{t.blog}</Link>
           </li>
 
           {/* UPDATED CONTACT BUTTON */}
@@ -63,15 +68,18 @@ const Navbar = () => {
             className="hover:text-cyan-500 cursor-pointer transition-colors"
             onClick={() => setIsContactOpen(true)} // Open Modal on click
           >
-            Contact
+            {t.contact}
           </li>
         </ul>
 
-        {/* CTA Button */}
-        <button className="hidden md:flex items-center gap-2 px-5 py-2.5 border border-cyan-400 text-cyan-600 rounded-full font-medium text-sm hover:bg-cyan-50 transition-colors">
-          Get Started
-          <ArrowRight size={16} />
-        </button>
+        {/* CTA Button & Language Toggle */}
+        <div className="hidden md:flex items-center gap-3">
+          <LanguageToggle />
+          <button className="flex items-center gap-2 px-5 py-2.5 border border-cyan-400 text-cyan-600 rounded-full font-medium text-sm hover:bg-cyan-50 transition-colors">
+            {t.getStarted}
+            <ArrowRight size={16} />
+          </button>
+        </div>
       </nav>
 
       {/* Render the Contact Modal */}

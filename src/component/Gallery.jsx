@@ -8,57 +8,57 @@ const Gallery = () => {
   const galleryItems = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop",
-      title: "The Wedding Day Glow",
-      category: "Teeth Whitening",
-      patientAge: "28",
-      story: "Sarah came to us just 3 weeks before her wedding. She was self-conscious about coffee stains accumulated over her university years. We designed a custom Zoom Whitening plan. The result? A smile that outshined her dress. She told us she couldn't stop smiling in every single wedding photo.",
-      outcome: "8 Shades Whiter"
+      image: "p1.png", // Child patient
+      title: "Happy Little Smiles",
+      category: "Pediatric Dentistry",
+      patientAge: "6",
+      story: "Arav was nervous about his first checkup, but our friendly team turned it into a fun adventure. We focused on building trust and teaching proper brushing techniques early on. He left with a cavity-free certificate and a big thumbs up!",
+      outcome: "Fear-Free Experience"
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1606811826601-e90370863800?q=80&w=2070&auto=format&fit=crop",
-      title: "Overcoming Dental Anxiety",
-      category: "Pediatric Dentistry",
-      patientAge: "7",
-      story: "Little Leo was terrified of the dentist chair. Our pediatric specialist used our 'Tell-Show-Do' technique and played his favorite cartoons on the ceiling TV. By the end of the cavity filling, he didn't even realize the procedure was done. He actually gave Dr. Smith a high-five!",
-      outcome: "Zero Tears, 1 Cavity Filled"
+      image: "p2.png", // Elderly man
+      title: "Restoring Confidence",
+      category: "Geriatric Dentistry",
+      patientAge: "72",
+      story: "Mr. Sharma struggled with loose dentures that made eating difficult. We provided him with a custom-fitted complete denture set that restored his facial structure and ability to chew comfortably. His beaming smile says it all.",
+      outcome: "Functionality Restored"
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop",
-      title: "Full Mouth Rehabilitation",
-      category: "Implants & Veneers",
-      patientAge: "54",
-      story: "After years of neglecting oral health due to busy work life, Mark had difficulty chewing and hid his laugh. We performed a combination of All-on-4 implants and porcelain veneers. It wasn't just about teeth; it was about restoring his ability to enjoy a steak dinner and laugh openly with his grandchildren.",
-      outcome: "Full Functionality Restored"
+      image: "p3.png", // Woman in consultation collage
+      title: "Comprehensive Care",
+      category: "General Consultation",
+      patientAge: "38",
+      story: "Priya visited us for a routine consultation regarding tooth sensitivity. We created a personalized treatment plan involving a simple root canal and a ceramic crown. The process was explained in detail to ensure she felt completely at ease.",
+      outcome: "Pain-Free & Informed"
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=2070&auto=format&fit=crop",
-      title: "The Invisible Correction",
-      category: "Invisalign",
-      patientAge: "32",
-      story: "Jessica is a corporate executive who needed braces but couldn't afford the 'metal look' in board meetings. We set her up with Invisalign. Over 12 months, her crowding was corrected without a single colleague noticing she was undergoing treatment until the final reveal.",
-      outcome: "Perfect Alignment in 12 Months"
+      image: "p4.png", // Young woman (Before/After gap closure)
+      title: "The Perfect Alignment",
+      category: "Cosmetic Bonding",
+      patientAge: "23",
+      story: "Sneha was self-conscious about the gap between her front teeth (diastema). Using composite bonding, we closed the space in a single sitting without the need for braces. The result was an instant, seamless transformation of her smile.",
+      outcome: "Gap Closed in 1 Hour"
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1609840114035-3c981b782808?q=80&w=2070&auto=format&fit=crop",
-      title: "Emergency Restoration",
-      category: "Ceramic Bonding",
-      patientAge: "22",
-      story: "A cycling accident left Tom with a chipped front tooth right before his graduation. Using high-grade composite bonding, we sculpted the tooth back to its natural shape in a single 45-minute sitting. The color match was so precise, even he couldn't tell where the chip used to be.",
-      outcome: "Instant Repair"
+      image: "p5.png", // Middle-aged woman in saree
+      title: "Smile Rejuvenation",
+      category: "Restorative Dentistry",
+      patientAge: "52",
+      story: "Years of wear and tear had taken a toll on Sunita's smile. We performed a smile rejuvenation procedure using porcelain bridges to replace missing teeth and restore her natural bite, giving her a youthful and radiant look.",
+      outcome: "Natural Look Restored"
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1572666341285-cb8cb60d0693?q=80&w=2070&auto=format&fit=crop",
-      title: "Gum Contouring",
-      category: "Cosmetic Surgery",
-      patientAge: "29",
-      story: "Emma felt she had a 'gummy smile' where her teeth looked too small. Using our precision laser technology, we gently reshaped the gum line. It was a minimally invasive procedure with a massive visual impact, revealing the beautiful natural length of her teeth.",
-      outcome: "Balanced Smile Aesthetics"
+      image: "p6.png", // Woman with visible gap
+      title: "Midline Correction",
+      category: "Orthodontics",
+      patientAge: "34",
+      story: "Anjali came to us wishing to address the spacing in her upper teeth. We discussed various options including invisible aligners to gently close the midline gap over time, ensuring her gum health remained a priority throughout the process.",
+      outcome: "Treatment Plan Initiated"
     }
   ];
 

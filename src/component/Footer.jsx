@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const Footer = () => {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
+
   return (
     <footer className="bg-gray-900 text-white pt-20 pb-10 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
@@ -32,7 +37,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-400 leading-relaxed text-sm">
-              Providing world-class dental care with a focus on comfort, technology, and long-term oral health for the whole family.
+              {t.tagline}
             </p>
             <div className="flex gap-4">
               <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-cyan-500 hover:text-white transition-all">
@@ -49,31 +54,31 @@ const Footer = () => {
 
           {/* COLUMN 2: Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-6">{t.quickLinks}</h3>
             <ul className="space-y-4 text-gray-400 text-sm">
               <li>
                 <Link to="/" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <ArrowRight size={14} /> Home
+                  <ArrowRight size={14} /> {t.home}
                 </Link>
               </li>
               <li>
                 <a href="/#services" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <ArrowRight size={14} /> Our Services
+                  <ArrowRight size={14} /> {t.ourServices}
                 </a>
               </li>
               <li>
                 <a href="/#technology" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <ArrowRight size={14} /> Technology
+                  <ArrowRight size={14} /> {t.technology}
                 </a>
               </li>
               <li>
                 <Link to="/gallery" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <ArrowRight size={14} /> Smile Gallery
+                  <ArrowRight size={14} /> {t.smileGallery}
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
-                  <ArrowRight size={14} /> Dental Blog
+                  <ArrowRight size={14} /> {t.dentalBlog}
                 </Link>
               </li>
             </ul>
@@ -81,7 +86,7 @@ const Footer = () => {
 
           {/* COLUMN 3: Contact Info */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Contact Us</h3>
+            <h3 className="text-lg font-bold mb-6">{t.contactUs}</h3>
             <ul className="space-y-6 text-gray-400 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-cyan-500 shrink-0" />
@@ -103,19 +108,19 @@ const Footer = () => {
 
           {/* COLUMN 4: Opening Hours */}
           <div>
-            <h3 className="text-lg font-bold mb-6">Opening Hours</h3>
+            <h3 className="text-lg font-bold mb-6">{t.openingHours}</h3>
             <ul className="space-y-3 text-gray-400 text-sm">
               <li className="flex justify-between border-b border-gray-800 pb-2">
-                <span>Mon - Fri</span>
+                <span>{t.monFri}</span>
                 <span className="text-white">09:00 AM - 08:00 PM</span>
               </li>
               <li className="flex justify-between border-b border-gray-800 pb-2">
-                <span>Saturday</span>
+                <span>{t.saturday}</span>
                 <span className="text-white">09:00 AM - 06:00 PM</span>
               </li>
               <li className="flex justify-between pb-2">
-                <span>Sunday</span>
-                <span className="text-rose-400 font-medium">Closed</span>
+                <span>{t.sunday}</span>
+                <span className="text-rose-400 font-medium">{t.closed}</span>
               </li>
             </ul>
           </div>
@@ -124,10 +129,10 @@ const Footer = () => {
 
         {/* BOTTOM BAR */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
-          <p>© 2025 Mantist Dental Care. All rights reserved.</p>
+          <p>{t.copyright}</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">{t.privacy}</a>
+            <a href="#" className="hover:text-white transition-colors">{t.terms}</a>
           </div>
         </div>
 

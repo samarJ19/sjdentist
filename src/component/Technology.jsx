@@ -1,30 +1,35 @@
 import React, { useState } from 'react';
-import { Scan, Zap, Layers, Star } from 'lucide-react';
+import { Sparkles, Heart, IndianRupee, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const Technology = () => {
-  // Data for the different technologies
+  const { language } = useLanguage();
+  const t = translations[language].technology;
+
+  // Data for Why Choose Us features
   const techFeatures = [
     {
       id: 1,
-      title: "3D Intra Oral Scanning",
-      description: "No more messy impressions. Digital precision.",
-      icon: <Scan size={24} />,
-      image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop", // Dental scanning image
+      title: t.scanning,
+      description: t.scanningDesc,
+      icon: <Sparkles size={24} />,
+      image: "clinic01.png",
     },
     {
       id: 2,
-      title: "Laser Dentistry",
-      description: "Minimally invasive procedures for faster healing.",
-      icon: <Zap size={24} />,
-      image: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=2070&auto=format&fit=crop", // Laser/High tech equipment
+      title: t.laser,
+      description: t.laserDesc,
+      icon: <Heart size={24} />,
+      image: "recie.png",
     },
     {
       id: 3,
-      title: "CBCT Imaging",
-      description: "Advanced 3D diagnostics for precise planning.",
-      icon: <Layers size={24} />,
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop", // X-ray or imaging context
+      title: t.cbct,
+      description: t.cbctDesc,
+      icon: <IndianRupee size={24} />,
+      image: "exterior01.png",
     }
   ];
 
@@ -46,13 +51,11 @@ const Technology = () => {
             className="space-y-8">
             <div className="space-y-2">
               <h2 className="text-4xl font-bold text-gray-900">
-                State of the Art <br />
-                <span className="text-cyan-500">Technology</span>
+                {t.title} <br />
+                <span className="text-cyan-500">{t.titleHighlight}</span>
               </h2>
               <p className="text-gray-600 leading-relaxed pt-2">
-                At Mantist, we believe in providing the most advanced care possible. 
-                Our clinic is equipped with global-standard diagnostic and treatment 
-                technology to ensure precision, safety, and comfort.
+                {t.description}
               </p>
             </div>
 
@@ -122,7 +125,7 @@ const Technology = () => {
                 <Star size={16} fill="currentColor" />
               </div>
               <p className="text-gray-800 font-semibold text-sm">
-                "The most modern clinic I've ever visited!"
+                {t.reviewQuote}
               </p>
             </div>
 

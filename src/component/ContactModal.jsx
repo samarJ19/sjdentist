@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { X, Phone, MessageCircle, Copy, Check } from 'lucide-react';
+import { useLanguage } from "../context/LanguageContext";
+import { translations } from "../translations";
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [copied, setCopied] = useState(false);
   const phoneNumber = "+91 07947431553"; // Replace with actual number
+  const { language } = useLanguage();
+  const t = translations[language].contact;
 
   if (!isOpen) return null;
 
@@ -26,7 +30,7 @@ const ContactModal = ({ isOpen, onClose }) => {
         
         {/* Header */}
         <div className="bg-gray-900 p-6 text-white flex justify-between items-center">
-          <h2 className="text-xl font-bold">Contact Us</h2>
+          <h2 className="text-xl font-bold">{t.title}</h2>
           <button 
             onClick={onClose} 
             className="p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
@@ -41,7 +45,7 @@ const ContactModal = ({ isOpen, onClose }) => {
           <div className="bg-gray-50 rounded-2xl p-5 border border-gray-100">
             <div className="flex items-center gap-3 mb-2 text-gray-500 text-sm font-semibold uppercase tracking-wide">
               <Phone size={16} />
-              Call Directly
+              {t.callDirectly}
             </div>
             
             <div className="flex items-center justify-between">
@@ -54,7 +58,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 className="flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors shadow-sm"
               >
                 {copied ? <Check size={14} className="text-green-500" /> : <Copy size={14} />}
-                {copied ? "Copied" : "Copy"}
+                {copied ? t.copied : t.copy}
               </button>
             </div>
             
@@ -62,7 +66,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               href={`tel:${phoneNumber.replace(/\s/g, '')}`} // Removes spaces for the actual link
               className="mt-4 block w-full py-2.5 text-center bg-white border border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-colors"
             >
-              Call Now
+              {t.callNow}
             </a>
           </div>
 
@@ -71,7 +75,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-200"></div>
             </div>
-            <span className="relative z-10 bg-white px-4 text-sm text-gray-400 font-medium">OR</span>
+            <span className="relative z-10 bg-white px-4 text-sm text-gray-400 font-medium">{t.or}</span>
           </div>
 
           {/* Option 2: WhatsApp */}
@@ -82,7 +86,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             className="flex items-center justify-center gap-3 w-full py-4 bg-[#25D366] text-white rounded-2xl font-bold text-lg shadow-lg shadow-green-500/20 hover:bg-[#20bd5a] transform transition-all hover:-translate-y-1"
           >
             <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" className='h-10 w-10' />
-            Chat on WhatsApp
+            {t.chatWhatsApp}
           </a>
 
         </div>
