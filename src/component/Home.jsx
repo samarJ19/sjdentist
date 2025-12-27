@@ -3,6 +3,7 @@ import Hero from './Hero';
 import Services from './Services';
 import Technology from './Technology';
 import Testimonials from './Testimonial';
+import Feedback from './Feedback';
 import BookingModal from './BookingModal';
 
 const Home = () => {
@@ -31,6 +32,7 @@ const Home = () => {
       <Services />
       <Technology />
       <Testimonials />
+      <Feedback />
       
       {/* 2. Pass the stored data down to the Modal */}
       <BookingModal 
